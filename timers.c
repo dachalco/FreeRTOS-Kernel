@@ -69,18 +69,18 @@
     #define tmrSTATUS_IS_AUTORELOAD              ( ( uint8_t ) 0x04 )
 
 /* The definition of the timers themselves. */
-    typedef struct tmrTimerControl                  /* The old naming convention is used to prevent breaking kernel aware debuggers. */
-    {
-        const char * pcTimerName;                   /*<< Text name.  This is not used by the kernel, it is included simply to make debugging easier. */ /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
-        ListItem_t xTimerListItem;                  /*<< Standard linked list item as used by all kernel features for event management. */
-        TickType_t xTimerPeriodInTicks;             /*<< How quickly and often the timer expires. */
-        void * pvTimerID;                           /*<< An ID to identify the timer.  This allows the timer to be identified when the same callback is used for multiple timers. */
-        TimerCallbackFunction_t pxCallbackFunction; /*<< The function that will be called when the timer expires. */
-        #if ( configUSE_TRACE_FACILITY == 1 )
-            UBaseType_t uxTimerNumber;              /*<< An ID assigned by trace tools such as FreeRTOS+Trace */
-        #endif
-        uint8_t ucStatus;                           /*<< Holds bits to say if the timer was statically allocated or not, and if it is active or not. */
-    } xTIMER;
+typedef struct tmrTimerControl /* The old naming convention is used to prevent breaking kernel aware debuggers. */
+{
+	const char				*pcTimerName;		/*<< Text name.  This is not used by the kernel, it is included simply to make debugging easier. */ /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+	ListItem_t				xTimerListItem;		/*<< Standard linked list item as used by all kernel features for event management. */
+	TickType_t				xTimerPeriodInTicks;/*<< How quickly and often the timer expires. */
+	void 					*pvTimerID;			/*<< An ID to identify the timer.  This allows the timer to be identified when the same callback is used for multiple timers. */
+	TimerCallbackFunction_t	pxCallbackFunction;	/*<< The function that will be called when the timer expires. */
+	#if( configUSE_TRACE_FACILITY == 1 )
+		UBaseType_t			uxTimerNumber;		/*<< An ID assigned by trace tools such as FreeRTOS+Trace */
+	#endif
+	uint8_t 				ucStatus;			/*<< Holds bits to say if the timer was statically allocated or not, and if it is active or not. */
+} xTIMER;
 
 /* The old xTIMER name is maintained above then typedefed to the new Timer_t
  * name below to enable the use of older kernel aware debuggers. */
@@ -98,12 +98,12 @@
     } TimerParameter_t;
 
 
-    typedef struct tmrCallbackParameters
-    {
-        PendedFunction_t pxCallbackFunction; /* << The callback function to execute. */
-        void * pvParameter1;                 /* << The value that will be used as the callback functions first parameter. */
-        uint32_t ulParameter2;               /* << The value that will be used as the callback functions second parameter. */
-    } CallbackParameters_t;
+typedef struct tmrCallbackParameters
+{
+	PendedFunction_t	pxCallbackFunction;	/* << The callback function to execute. */
+	void *pvParameter1;						/* << The value that will be used as the callback functions first parameter. */
+	uint32_t ulParameter2;					/* << The value that will be used as the callback functions second parameter. */
+} CallbackParameters_t;
 
 /* The structure that contains the two message types, along with an identifier
  * that is used to determine which message type is valid. */
@@ -1142,3 +1142,4 @@
  * to include software timer functionality.  If you want to include software timer
  * functionality then ensure configUSE_TIMERS is set to 1 in FreeRTOSConfig.h. */
 #endif /* configUSE_TIMERS == 1 */
+
