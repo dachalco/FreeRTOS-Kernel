@@ -44,9 +44,9 @@
 * MACROS AND DEFINITIONS
 *----------------------------------------------------------*/
 
-#define tskKERNEL_VERSION_NUMBER       "V10.5.0"
+#define tskKERNEL_VERSION_NUMBER       "V10.6.0"
 #define tskKERNEL_VERSION_MAJOR        10
-#define tskKERNEL_VERSION_MINOR        5
+#define tskKERNEL_VERSION_MINOR        6
 #define tskKERNEL_VERSION_BUILD        0
 
 /* MPU region parameters passed in ulParameters
