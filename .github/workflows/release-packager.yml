@@ -32,6 +32,7 @@ jobs:
           repository: dachalco/FreeRTOS # TODO: This is only for my debugging. Before merging upstream this should be updated
           ref:  autorelease/enhancements
           path: tools
+          token: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Release
         run: |
