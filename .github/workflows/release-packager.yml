@@ -33,17 +33,21 @@ jobs:
           ref:  autorelease/enhancements
           path: tools
           token: ${{ secrets.GITHUB_TOKEN }} 
-
+        
+      - name: Test
       - uses: actions/checkout@v2
+      - with: 
+          path: tmp-release-kernel
+
       - run: |
           # Configure repo for push
-          git config user.name ${{ github.actor }}
-          git config user.email ${{ github.actor }}@users.noreply.github.com
+          git config --global user.name ${{ github.actor }}
+          git config --global user.email ${{ github.actor }}@users.noreply.github.com
           
-          echo hello >> test-push.txt
-          git add test-push.txt
-          git commit -m "test push"
-          git push
+          echo hello >> test/test-push.txt
+          git -C test add test-push.txt
+          git -C test commit -m "test push"
+          git -C test push
         
 
       - name: Release
