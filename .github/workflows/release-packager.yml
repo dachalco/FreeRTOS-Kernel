@@ -29,13 +29,14 @@ jobs:
       - name: Checkout FreeRTOS Release Tools
         uses: actions/checkout@v2
         with:
-          repository: FreeRTOS/FreeRTOS
+          repository: dachalco/FreeRTOS # TODO: This is only for my debugging. Before merging upstream this should be updated
           ref:  master
           path: tools
 
       - name: Release
         run: |
           cd tools/.github/scripts
+          pip install -r release-requirements.txt
           ./release.py --kernel-commit=${{ github.event.inputs.commit_id }} --new-kernel-version=${{ github.event.inputs.version_number }}
           exit $?
         env:
