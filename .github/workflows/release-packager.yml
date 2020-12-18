@@ -35,8 +35,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} 
         
       - name: Test
-      - uses: actions/checkout@v2
-      - with: 
+        uses: actions/checkout@v2
+        with: 
           path: tmp-release-kernel
 
       - run: |
