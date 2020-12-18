@@ -37,7 +37,7 @@ jobs:
       - name: Test
         uses: actions/checkout@v2
         with: 
-          path: tmp-release-kernel
+          path: test
 
       - run: |
           # Configure repo for push
