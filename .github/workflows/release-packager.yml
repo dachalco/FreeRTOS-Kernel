@@ -34,9 +34,8 @@ jobs:
           path: tools
           token: ${{ secrets.GITHUB_TOKEN }} 
 
-      - name: Test
-        uses: actions/checkout@v2
-        run: |
+      - uses: actions/checkout@v2
+      - run: |
           # Configure repo for push
           git config user.name ${{ github.actor }}
           git config user.email ${{ github.actor }}@users.noreply.github.com
