@@ -37,7 +37,7 @@ jobs:
         run: |
           cd tools/.github/scripts
           pip install -r release-requirements.txt
-          ./release.py --kernel-commit=${{ github.event.inputs.commit_id }} --new-kernel-version=${{ github.event.inputs.version_number }}
+          ./release.py dachalco --kernel-commit=${{ github.event.inputs.commit_id }} --new-kernel-version=${{ github.event.inputs.version_number }}
           exit $?
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
