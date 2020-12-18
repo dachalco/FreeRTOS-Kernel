@@ -36,10 +36,6 @@ jobs:
 
       - name: Release
         run: |
-          # Configure user interface Auth
-          git config --global user.name '${{ github.actor }}'
-          git config --global user.email '${{ github.actor }}@users.noreply.github.com'
-                    
           # Run the release script
           cd tools/.github/scripts
           
@@ -48,8 +44,8 @@ jobs:
           git commit -m "test push"
           git push
           
-          pip install -r release-requirements.txt
-          ./release.py dachalco --kernel-commit=${{ github.event.inputs.commit_id }} --new-kernel-version=${{ github.event.inputs.version_number }} --use-git-ssh
-          exit $?
+          #pip install -r release-requirements.txt
+          #./release.py dachalco --kernel-commit=${{ github.event.inputs.commit_id }} --new-kernel-version=${{ github.event.inputs.version_number }} --use-git-ssh
+          #exit $?
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
