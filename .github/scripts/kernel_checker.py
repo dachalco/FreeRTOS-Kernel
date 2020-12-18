@@ -33,7 +33,7 @@ KERNEL_IGNORED_PATTERNS = [r'.*\.git.*']
 
 KERNEL_HEADER = [
     '/*\n',
-    ' * FreeRTOS Kernel V10.4.2\n',
+    ' * FreeRTOS Kernel V10.4.87
     ' * Copyright (C) 2020 Amazon.com, Inc. or its affiliates.  All Rights Reserved.\n',
     ' *\n',
     ' * Permission is hereby granted, free of charge, to any person obtaining a copy of\n',
