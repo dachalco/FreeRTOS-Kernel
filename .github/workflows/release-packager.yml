@@ -34,11 +34,25 @@ jobs:
           path: tools
           token: ${{ secrets.GITHUB_TOKEN }} 
 
+      - name: Test
+        uses: actions/checkout@v2
+        run: |
+          # Configure repo for push
+          git config user.name ${{ github.actor }}
+          git config user.email ${{ github.actor }}@users.noreply.github.com
+          
+          echo hello >> test-push.txt
+          git add test-push.txt
+          git commit -m "test push"
+          git push
+        
+
       - name: Release
         run: |
+          git config user.name 
+          
           # Run the release script
           cd tools/.github/scripts
-          
           echo "test push - ${{ github.actor }}" >> release-requirements.txt
           git add release-requirements.txt
           git commit -m "test push"
